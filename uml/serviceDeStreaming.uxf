@@ -56,7 +56,7 @@
 +creerFamille(): Famille
 /+peutRegarder(): boolean/
 /+peutAjouterFilm(): boolean/
-/+appliquerReduction(): int/
+
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -74,20 +74,20 @@
 --
 +peutRegarder(): boolean
 +peutAjouterFilm(): boolean
-+appliquerReduction(): int</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>130</x>
-      <y>40</y>
+      <x>230</x>
+      <y>700</y>
       <w>200</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>Famille
 --
-id: int
+-id: int
 -reduction: final int
 --
 +getters()
@@ -139,7 +139,7 @@ id: int
 +toString(): String
 +verifiePremium(): boolean
 +ajouterFilm()
-+afficherDernierFilm(): List&lt;Film&gt;</panel_attributes>
++getDernierFilm(): List&lt;Film&gt;</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -159,13 +159,13 @@ m2=1</panel_attributes>
     <coordinates>
       <x>890</x>
       <y>420</y>
-      <w>90</w>
+      <w>50</w>
       <h>280</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=0..*
 m2=0..*
-ajouter v</panel_attributes>
+</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
   </element>
   <element>
@@ -188,21 +188,21 @@ then assosiation:
     <id>Relation</id>
     <coordinates>
       <x>320</x>
-      <y>90</y>
-      <w>230</w>
-      <h>160</h>
+      <y>570</y>
+      <w>50</w>
+      <h>150</h>
     </coordinates>
-    <panel_attributes>lt=-
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=0..5
 m2=0..1
-ajouter &gt;</panel_attributes>
-    <additional_attributes>190.0;140.0;190.0;20.0;10.0;20.0</additional_attributes>
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>510</x>
-      <y>110</y>
+      <x>120</x>
+      <y>600</y>
       <w>210</w>
       <h>70</h>
     </coordinates>
