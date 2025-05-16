@@ -36,6 +36,7 @@ fontsize=10
     <panel_attributes>Film
 --
 -nom: String
+-List&lt;String&gt; acteurs
 --
 +getters()
 +setters(): void
@@ -53,12 +54,13 @@ fontsize=10
     </coordinates>
     <panel_attributes>ComptePremium
 --
--payment
+-payment: double
 --
 +stockerPayment(): void
 +peutRegarder(): boolean
 +peutAjouterFilm(): boolean
-+appliquerReduction(): int</panel_attributes>
++appliquerReduction(): int
++creerFamille(): Famille</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -67,17 +69,16 @@ fontsize=10
       <x>432</x>
       <y>36</y>
       <w>264</w>
-      <h>228</h>
+      <h>204</h>
     </coordinates>
     <panel_attributes>/Compte/
 --
--id
--nom
+-id: long
+-nom: String
 --
 +getters()
 +setters(): void
 +toString(): String
-+creerFamille(): Famille
 /+peutRegarder(): boolean/
 /+peutAjouterFilm(): boolean/
 
@@ -90,7 +91,7 @@ fontsize=10
       <x>432</x>
       <y>312</y>
       <w>216</w>
-      <h>144</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>CompteDecouverte
 --
@@ -107,18 +108,17 @@ fontsize=10
       <x>156</x>
       <y>600</y>
       <w>240</w>
-      <h>204</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Famille
 --
--id: int
+-id: long
 -reduction: final int
 --
 +getters()
 +setters(): void
 +toString(): String
 +ajouterCompte(): void
-+appliquerReduction(): int
 
 
 </panel_attributes>
@@ -139,12 +139,12 @@ fontsize=10
     <id>Relation</id>
     <coordinates>
       <x>492</x>
-      <y>252</y>
+      <y>228</y>
       <w>36</w>
-      <h>84</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -157,7 +157,7 @@ fontsize=10
     <panel_attributes>Playlist
 --
 -nom: String
--List&lt;String&gt; acteurs
+
 --
 +getters()
 +setters(): void
@@ -199,7 +199,7 @@ m2=0..*
       <x>732</x>
       <y>372</y>
       <w>228</w>
-      <h>120</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>if verifyPremium is false
 then assosiation:
@@ -229,7 +229,7 @@ m2=0..1
       <x>24</x>
       <y>480</y>
       <w>252</w>
-      <h>84</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>if Compte is the last in Famille
 Famille is destroyed</panel_attributes>
