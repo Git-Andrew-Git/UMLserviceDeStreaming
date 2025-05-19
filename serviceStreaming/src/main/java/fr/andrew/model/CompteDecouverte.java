@@ -16,6 +16,11 @@ public class CompteDecouverte extends Compte {
     }
 
     @Override
+    public String getTypeCompte() {
+        return "Decouverte";
+    }
+
+    @Override
     public boolean peutRegarder() {
         return false;
     }

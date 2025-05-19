@@ -157,7 +157,6 @@ fontsize=10
     </coordinates>
     <panel_attributes>Playlist
 --
--nom: String
 
 --
 +getters()

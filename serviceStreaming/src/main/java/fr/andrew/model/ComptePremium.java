@@ -38,9 +38,15 @@ public class ComptePremium extends Compte {
     }
 
     @Override
+    public String getTypeCompte() {
+        return "Premium";
+    }
+
+    @Override
     public boolean peutRegarder() {
         return true;
     }
+
 
     public void stockerPayment(){}
     public void appliquerReduction(){}

@@ -1,9 +1,12 @@
 package fr.andrew.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Compte {
     private long id;
     private String nom;
-    private List<Playlist> playlist;
+    private Playlist playlist = new Playlist(this);
 
     public Compte(long id, String nom) {
         this.id = id;
@@ -36,4 +39,5 @@ public abstract class Compte {
 
     public abstract boolean peutRegarder();
     public abstract boolean peutAjouterFilm();
+    public abstract String getTypeCompte();
 }
