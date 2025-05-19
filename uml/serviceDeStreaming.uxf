@@ -55,6 +55,7 @@ fontsize=10
     <panel_attributes>ComptePremium
 --
 -payment: double
+-famille: String
 --
 +stockerPayment(): void
 +peutRegarder(): boolean

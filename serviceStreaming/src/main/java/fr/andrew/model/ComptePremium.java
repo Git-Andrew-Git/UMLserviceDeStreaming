@@ -3,9 +3,11 @@ package fr.andrew.model;
 public class ComptePremium extends Compte {
     private double payment;
 
-    public ComptePremium(long id, String nom, double payment) {
+
+    private long famille=-1;
+
+    public ComptePremium(long id, String nom) {
         super(id, nom);
-        this.payment = payment;
     }
 
     @Override
@@ -23,6 +25,13 @@ public class ComptePremium extends Compte {
         this.payment = payment;
     }
 
+    public long getFamille() {
+        return famille;
+    }
+
+    public void setFamille(long famille) {
+        this.famille = famille;
+    }
     @Override
     public boolean peutAjouterFilm() {
         return true;
@@ -34,6 +43,7 @@ public class ComptePremium extends Compte {
     }
 
     public void stockerPayment(){}
-    public int appliquerReduction(){}
-    public Famille creerFamille(){}
+    public void appliquerReduction(){}
+
+
 }
