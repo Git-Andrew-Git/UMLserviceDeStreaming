@@ -8,12 +8,11 @@ public class ComptePremium extends Compte {
 
 
 
-    private Playlist playlist;
+
     private Famille famille;
 
     public ComptePremium(long id, String nom) {
         super(id, nom);
-        this.playlist = new Playlist(this);
     }
 
     @Override
@@ -21,14 +20,6 @@ public class ComptePremium extends Compte {
         return "ComptePremium{" +
                 "payment=" + payment +
                 '}';
-    }
-
-    public Playlist getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
     }
 
     @Override
@@ -133,8 +124,4 @@ public class ComptePremium extends Compte {
 
         }
     }
-
-
-
-
 }

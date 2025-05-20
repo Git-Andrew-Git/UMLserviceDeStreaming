@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 
 public class CompteDecouverte extends Compte {
     private int count = 1;
-    private Playlist playlist;
+
 
     public CompteDecouverte(long id, String nom) {
         super(id, nom);
-        this.playlist = new Playlist(this);
+
     }
 
     @Override
@@ -31,13 +31,7 @@ public class CompteDecouverte extends Compte {
         scheduler.shutdown();
     }
 
-    public Playlist getPlaylist() {
-        return playlist;
-    }
 
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
-    }
     @Override
     public void regarderFilm(Film film) {
         if (peutRegarder(film)) {

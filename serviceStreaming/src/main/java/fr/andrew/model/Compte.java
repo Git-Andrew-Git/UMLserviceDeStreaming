@@ -6,6 +6,8 @@ import java.util.List;
 public abstract class Compte {
     private long id;
     private String nom;
+
+
     private final Playlist playlist = new Playlist(this);
 
     public Compte(long id, String nom) {
@@ -19,6 +21,9 @@ public abstract class Compte {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 '}';
+    }
+    public Playlist getPlaylist() {
+        return playlist;
     }
 
     public long getId() {
