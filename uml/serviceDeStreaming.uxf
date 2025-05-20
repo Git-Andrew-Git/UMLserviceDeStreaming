@@ -38,8 +38,7 @@ fontsize=10
 -nom: String
 -List&lt;String&gt; acteurs
 --
-+getters()
-+setters(): void
++ctor/getters/setters
 +toString(): String
 </panel_attributes>
     <additional_attributes/>
@@ -50,19 +49,25 @@ fontsize=10
       <x>168</x>
       <y>312</y>
       <w>216</w>
-      <h>156</h>
+      <h>252</h>
     </coordinates>
     <panel_attributes>ComptePremium
 --
 -payment: double
--famille: String
+-prix: double
+-reduction: double
+-idFamille: long
+-famille: Famille
 --
++ctor/getters/setters
 +payer(): void
-+stockerPayment(): void
-+peutRegarder(): boolean
-+peutAjouterFilm(): boolean
-+appliquerReduction(): int
-+creerFamille(): Famille</panel_attributes>
+-stockerPayment(): void
+#peutRegarder(film: Film): boolean
+#peutAjouterFilm(): boolean
++regarderFilm(film: Film): void
+-appliquerReduction(): int
++creerFamille(): Famille
++payer(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -78,11 +83,11 @@ fontsize=10
 -id: long
 -nom: String
 --
-+getters()
-+setters(): void
++ctor/getters/setters
 +toString(): String
-/+peutRegarder(): boolean/
-/+peutAjouterFilm(): boolean/
+/#peutRegarder(film: Film): boolean/
+/#peutAjouterFilm(): boolean/
+/+regarderFilm(film: Film): void/
 
 </panel_attributes>
     <additional_attributes/>
@@ -93,14 +98,17 @@ fontsize=10
       <x>432</x>
       <y>312</y>
       <w>216</w>
-      <h>96</h>
+      <h>132</h>
     </coordinates>
     <panel_attributes>CompteDecouverte
 --
-
+-count: int
 --
-+peutRegarder(): boolean
-+peutAjouterFilm(): boolean
++ctor/getters/setters
+#peutRegarder(film: Film): boolean
+#peutAjouterFilm(): boolean
++regarderFilm(film: Film): void
+-timeOut(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -108,19 +116,19 @@ fontsize=10
     <id>UMLClass</id>
     <coordinates>
       <x>156</x>
-      <y>600</y>
-      <w>240</w>
-      <h>132</h>
+      <y>672</y>
+      <w>444</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>Famille
 --
 -id: long
 -reduction: final int
 --
-+getters()
-+setters(): void
++ctor/getters/setters
 +toString(): String
-+ajouterCompte(): void
++ajouterComptePremium(comptePremium: ComptePremium): void
++suprimerComptePremium(comptePremium: ComptePremium): void
 
 
 </panel_attributes>
@@ -160,12 +168,12 @@ fontsize=10
 --
 
 --
-+getters()
-+setters(): void
++ctor/getters/setters
 +toString(): String
-+verifiePremium(): boolean
-+ajouterFilm()
-+getDernierFilm(): List&lt;Film&gt;</panel_attributes>
+#verifyFilm(film: Film): boolean
+-verifiePremium(): boolean
++ajouterFilm(film: Film): void
++suprimerFilm(film: Film): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -214,14 +222,14 @@ then assosiation:
     <id>Relation</id>
     <coordinates>
       <x>228</x>
-      <y>456</y>
+      <y>552</y>
       <w>60</w>
-      <h>168</h>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 m1=0..5
 m2=0..1
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
 </diagram>

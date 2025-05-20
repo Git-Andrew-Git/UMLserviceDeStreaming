@@ -53,7 +53,7 @@ public class CompteDecouverte extends Compte {
     }
 
     @Override
-    public boolean peutAjouterFilm() {
+    protected boolean peutAjouterFilm() {
         boolean result = false;
         if (getPlaylist().getFilms().isEmpty()) {
             result = true;
@@ -61,13 +61,10 @@ public class CompteDecouverte extends Compte {
         return result;
     }
 
-    @Override
-    public String getTypeCompte() {
-        return "Decouverte";
-    }
+
 
     @Override
-    public boolean peutRegarder(Film film) {
+    protected boolean peutRegarder(Film film) {
         boolean result = false;
         if (!getPlaylist().getFilms().isEmpty()) {
             if (getCount() < 1) {

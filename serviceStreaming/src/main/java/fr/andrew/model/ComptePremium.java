@@ -2,7 +2,7 @@ package fr.andrew.model;
 
 public class ComptePremium extends Compte {
     private double payment=0;
-    private double cout = 10;
+    private double prix = 10;
     private double reduction = -3;
     private long idFamille=-1;
 
@@ -44,8 +44,8 @@ public class ComptePremium extends Compte {
         this.famille = famille;
     }
 
-    public void setCout(double cout) {
-        this.cout = cout;
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     public void setReduction(double reduction) {
@@ -55,8 +55,8 @@ public class ComptePremium extends Compte {
     public double getReduction() {
         return reduction;
     }
-    public double getCout() {
-        return cout;
+    public double getPrix() {
+        return prix;
     }
     public double getPayment() {
         return payment;
@@ -74,17 +74,14 @@ public class ComptePremium extends Compte {
         this.idFamille = famille;
     }
     @Override
-    public boolean peutAjouterFilm() {
+    protected boolean peutAjouterFilm() {
         return true;
     }
 
-    @Override
-    public String getTypeCompte() {
-        return "Premium";
-    }
+
 
     @Override
-    public boolean peutRegarder(Film film) {
+    protected boolean peutRegarder(Film film) {
         boolean result = false;
         if (!getPlaylist().getFilms().isEmpty()) {
             if (getPlaylist().verifyFilm(film)) {
@@ -101,26 +98,26 @@ public class ComptePremium extends Compte {
 
     public void payer() {
         stockerPayment();
-        System.out.println(getId() + "compte payé : " + getCout());
+        System.out.println(getId() + "compte payé : " + getPrix());
     }
 
 
-    public void stockerPayment(){
+    private void stockerPayment(){
         if (getIdFamille() > 0) {
             appliquerReduction();
-            setPayment(getCout());
+            setPayment(getPrix());
             System.out.println("totale payé : " + getPayment());
 
 
         } else {
 
-        setPayment(getCout());
+        setPayment(getPrix());
         System.out.println("totale payé : " + getPayment());
         }
     }
     private void appliquerReduction(){
         if (getFamille().getComptesPremiums().size() >= 2) {
-        setCout(getCout() + getReduction());
+        setPrix(getPrix() + getReduction());
 
         }
     }

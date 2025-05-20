@@ -1,8 +1,5 @@
 package fr.andrew.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Compte {
     private long id;
     private String nom;
@@ -42,7 +39,7 @@ public abstract class Compte {
         this.nom = nom;
     }
     public abstract void regarderFilm(Film film);
-    public abstract boolean peutRegarder(Film film);
-    public abstract boolean peutAjouterFilm();
-    public abstract String getTypeCompte();
+    protected abstract boolean peutRegarder(Film film);
+    protected abstract boolean peutAjouterFilm();
+
 }

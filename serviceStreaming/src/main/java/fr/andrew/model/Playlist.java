@@ -39,7 +39,7 @@ public class Playlist {
 
     private boolean verifyPremium(){
         boolean res = false;
-        if (compte instanceof ComptePremium){
+        if (getCompte() instanceof ComptePremium){
             res = true;
         }
         return res;
