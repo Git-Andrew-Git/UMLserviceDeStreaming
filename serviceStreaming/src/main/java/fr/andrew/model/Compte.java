@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class Compte {
     private long id;
     private String nom;
-    private Playlist playlist = new Playlist(this);
+    private final Playlist playlist = new Playlist(this);
 
     public Compte(long id, String nom) {
         this.id = id;

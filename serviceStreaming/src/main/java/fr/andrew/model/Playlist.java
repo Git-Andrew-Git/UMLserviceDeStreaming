@@ -6,7 +6,7 @@ import java.util.List;
 public class Playlist {
 
 
-    private Compte compte;
+    private final Compte compte;
     private List<Film> films = new ArrayList<>();
     public Playlist(Compte compte) {
         this.compte = compte;
@@ -17,22 +17,31 @@ public class Playlist {
         return films;
     }
 
-    public void setFilms(List<Film> films) {
-        this.films = films;
+    public void setFilms(Film films) {
+        this.films.add(films);
     }
 
     public Compte getCompte() {
         return compte;
     }
 
-    public void setCompte(Compte compte) {
-        this.compte = compte;
-    }
     private boolean verifyPremium(){
         boolean res = false;
-        switch (compte){
-            case
+        if (compte instanceof ComptePremium){
+            res = true;
         }
         return res;
+    }
+
+    public void ajouterFilm(Film films){
+        if (verifyPremium()){
+            setFilms(films);
+        } else {
+            if (this.films.size()>1){
+                System.out.println("Not premium, only one film can be added");
+            } else {
+                setFilms(films);
+            }
+        }
     }
 }

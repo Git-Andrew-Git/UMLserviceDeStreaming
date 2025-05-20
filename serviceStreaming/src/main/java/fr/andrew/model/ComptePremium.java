@@ -1,7 +1,10 @@
 package fr.andrew.model;
 
 public class ComptePremium extends Compte {
-    private double payment;
+    private double payment=0;
+
+
+    private final double cout = 10;
 
 
     private long famille=-1;
@@ -17,6 +20,9 @@ public class ComptePremium extends Compte {
                 '}';
     }
 
+    public double getCout() {
+        return cout;
+    }
     public double getPayment() {
         return payment;
     }
@@ -47,8 +53,15 @@ public class ComptePremium extends Compte {
         return true;
     }
 
+    public void payer() {
+        System.out.println(getId() + "compte paye");
+        stockerPayment();
+    }
 
-    public void stockerPayment(){}
+
+    public void stockerPayment(){
+        payment += getCout();
+    }
     public void appliquerReduction(){}
 
 
