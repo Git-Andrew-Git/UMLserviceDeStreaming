@@ -38,12 +38,23 @@ public class Famille {
     }
 
     public void ajouterComptePremium(ComptePremium comptePremium) {
-        if (comptePremium.getFamille()>0){
+        if (comptePremium.getIdFamille()>0){
             System.out.println("Il a une famille, impossible d'avoir plus qu'une famille");
             return;
         }
         this.getComptesPremiums().add(comptePremium);
-        comptePremium.setFamille(getId());
+        comptePremium.setFamille(this);
+        comptePremium.setIdFamille(getId());
     }
+
+    public void suprimerComptePremium(ComptePremium comptePremium) {
+        if (getComptesPremiums().isEmpty()) {
+            System.out.println("there is no family members");
+        } else {
+            getComptesPremiums().remove(comptePremium);
+        }
+    }
+
+
 
 }

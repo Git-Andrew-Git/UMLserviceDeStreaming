@@ -36,8 +36,8 @@ public abstract class Compte {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
-    public abstract boolean peutRegarder();
+    public abstract void regarderFilm(Film film);
+    public abstract boolean peutRegarder(Film film);
     public abstract boolean peutAjouterFilm();
     public abstract String getTypeCompte();
 }

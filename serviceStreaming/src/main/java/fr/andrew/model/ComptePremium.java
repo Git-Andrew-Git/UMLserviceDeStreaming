@@ -2,15 +2,18 @@ package fr.andrew.model;
 
 public class ComptePremium extends Compte {
     private double payment=0;
+    private double cout = 10;
+    private double reduction = -3;
+    private long idFamille=-1;
 
 
-    private final double cout = 10;
 
-
-    private long famille=-1;
+    private Playlist playlist;
+    private Famille famille;
 
     public ComptePremium(long id, String nom) {
         super(id, nom);
+        this.playlist = new Playlist(this);
     }
 
     @Override
@@ -20,6 +23,47 @@ public class ComptePremium extends Compte {
                 '}';
     }
 
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
+
+    @Override
+    public void regarderFilm(Film film) {
+        if (peutRegarder(film)) {
+            System.out.println(film + " est regardé");
+            getPlaylist().suprimerFilm(film);
+        } else {
+            System.out.println("on peut pas regarder film");
+        }
+    }
+
+
+
+
+
+    public Famille getFamille() {
+        return famille;
+    }
+
+    public void setFamille(Famille famille) {
+        this.famille = famille;
+    }
+
+    public void setCout(double cout) {
+        this.cout = cout;
+    }
+
+    public void setReduction(double reduction) {
+        this.reduction = reduction;
+    }
+
+    public double getReduction() {
+        return reduction;
+    }
     public double getCout() {
         return cout;
     }
@@ -28,15 +72,15 @@ public class ComptePremium extends Compte {
     }
 
     public void setPayment(double payment) {
-        this.payment = payment;
+        this.payment += payment;
     }
 
-    public long getFamille() {
-        return famille;
+    public long getIdFamille() {
+        return idFamille;
     }
 
-    public void setFamille(long famille) {
-        this.famille = famille;
+    public void setIdFamille(long famille) {
+        this.idFamille = famille;
     }
     @Override
     public boolean peutAjouterFilm() {
@@ -49,20 +93,48 @@ public class ComptePremium extends Compte {
     }
 
     @Override
-    public boolean peutRegarder() {
-        return true;
+    public boolean peutRegarder(Film film) {
+        boolean result = false;
+        if (!getPlaylist().getFilms().isEmpty()) {
+            if (getPlaylist().verifyFilm(film)) {
+                result = true;
+            } else {
+                System.out.println("There is no such film in your playlist");
+            }
+
+        } else {
+            System.out.println("there is nothing to watch");
+        }
+        return result;
     }
 
     public void payer() {
-        System.out.println(getId() + "compte paye");
         stockerPayment();
+        System.out.println(getId() + "compte payé : " + getCout());
     }
 
 
     public void stockerPayment(){
-        payment += getCout();
+        if (getIdFamille() > 0) {
+            appliquerReduction();
+            setPayment(getCout());
+            System.out.println("totale payé : " + getPayment());
+
+
+        } else {
+
+        setPayment(getCout());
+        System.out.println("totale payé : " + getPayment());
+        }
     }
-    public void appliquerReduction(){}
+    private void appliquerReduction(){
+        if (getFamille().getComptesPremiums().size() >= 2) {
+        setCout(getCout() + getReduction());
+
+        }
+    }
+
+
 
 
 }

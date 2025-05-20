@@ -12,6 +12,14 @@ public class Playlist {
         this.compte = compte;
     }
 
+    @Override
+    public String toString() {
+        return "Playlist{" +
+                "compte=" + compte +
+                ", films=" + films +
+                '}';
+    }
+
     public List<Film> getFilms() {
 
         return films;
@@ -25,6 +33,10 @@ public class Playlist {
         return compte;
     }
 
+    protected boolean verifyFilm(Film film) {
+        return getFilms().contains(film);
+    }
+
     private boolean verifyPremium(){
         boolean res = false;
         if (compte instanceof ComptePremium){
@@ -36,12 +48,23 @@ public class Playlist {
     public void ajouterFilm(Film films){
         if (verifyPremium()){
             setFilms(films);
+            System.out.println(films + " est ajouté");
         } else {
-            if (this.films.size()>1){
+            if (!getCompte().peutAjouterFilm()){
                 System.out.println("Not premium, only one film can be added");
             } else {
                 setFilms(films);
+                System.out.println(films + " est ajouté");
             }
+        }
+    }
+
+    public void suprimerFilm(Film film) {
+        if (getFilms().isEmpty()) {
+            System.out.println("there is no films");
+        } else {
+            getFilms().remove(film);
+            System.out.println(film + " est suprimé");
         }
     }
 }
